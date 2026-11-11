@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C1 · Desmontando o castelo — Trilha GameDev 2D</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="trilha.css">
+</head>
+<body>
+
+<header class="hud"><div class="dentro">
+  <span class="marca"><img src="img/vida.png" alt="">GameDev 2D · C1</span>
+  <nav>
+    <a href="#sala1">A trilha</a><a href="#sala2">Jogar</a><a href="#sala3">Elementos</a><a href="#sala4">MDA</a>
+    <a href="#sala5">Loop</a><a href="#sala6">GDD</a><a href="#sala7">Engenharia reversa</a><a href="#sala8">Mapa</a>
+  </nav>
+</div></header>
+
+<section class="abertura">
+  <div class="selo">DESIGN DE JOGOS 2D: DA IDEIA AO GDD · SITE 1 DE 3 · AULA INICIAL (SÁBADO, PRESENCIAL)</div>
+  <h1>Desmontando <em>o castelo</em>.</h1>
+  <p class="lead">Antes de criar o seu jogo, você vai desmontar um que já funciona. <b>O Rei e os Porcos</b> é o jogo modelo da trilha: ao longo de oito módulos você reconstrói cada parte dele e, ao mesmo tempo, constrói um jogo seu, parecido com ele. Hoje começa pelo começo — entender por que ele é divertido.</p>
+  <div class="palco" aria-hidden="true"><div class="sprite porco"></div><div class="sprite rei"></div></div>
+
+  <div class="inventario">
+    <div class="slot"><img src="img/porta.png" alt=""><div class="rot">Etapa anterior</div><div class="val">Nenhuma — é a porta de entrada</div></div>
+    <div class="slot"><img src="img/bau.png" alt=""><div class="rot">Arquivo de partida</div><div class="val"><a href="jogar/index.html" target="_blank" rel="noopener">O jogo modelo (navegador)</a></div></div>
+    <div class="slot entrega"><img src="img/chave.png" alt=""><div class="rot">Você vai produzir</div><div class="val">GDD de uma página do jogo modelo</div></div>
+    <div class="slot"><img src="img/porta.png" alt=""><div class="rot">Próxima etapa</div><div class="val"><a href="https://rclepf.github.io/GameDev2D-C1-02/">Site 2 · Estudo da semana (EAD)</a></div></div>
+  </div>
+</section>
+
+<main>
+
+<section class="sala" id="sala1">
+  <div class="sala-cab"><span class="sala-num">SALA 01</span><h2>A trilha em oito portas</h2></div>
+  <p class="objetivo">Objetivo: saber o que você vai construir e onde cada módulo entra.</p>
+  <p>Cada módulo tem 16 horas, de sábado a sábado, e três sites como este:</p>
+  <table>
+    <tr><th>Momento</th><th>Carga</th><th>O que acontece</th></tr>
+    <tr><td><b>Aula inicial</b> (sábado)</td><td>4h presenciais</td><td>O instrutor explica o tema e vocês reconstroem juntos uma parte do jogo modelo.</td></tr>
+    <tr><td><b>EAD</b> (durante a semana)</td><td>8h</td><td>Fundamentação teórica com material externo e a atividade que leva o tema para o <b>seu</b> jogo — o <b>marco</b> do módulo.</td></tr>
+    <tr><td><b>Aula final</b> (sábado)</td><td>4h presenciais</td><td>Complemento do tema, entregas, playtest entre colegas e encerramento do módulo.</td></tr>
+  </table>
+  <div class="mapa">
+    <div class="porta aqui"><img src="img/porta.png" alt=""><b>C1</b>GDD ◂ você</div>
+    <div class="porta futura"><img src="img/porta.png" alt=""><b>P1/V1</b>Arte</div>
+    <div class="porta futura"><img src="img/porta.png" alt=""><b>P2/V2</b>Animação</div>
+    <div class="porta futura"><img src="img/porta.png" alt=""><b>P3/V3</b>Fase</div>
+    <div class="porta futura"><img src="img/porta.png" alt=""><b>C2</b>Engine</div>
+    <div class="porta futura"><img src="img/porta.png" alt=""><b>C3</b>Mecânicas</div>
+    <div class="porta futura"><img src="img/porta.png" alt=""><b>C4</b>Áudio</div>
+    <div class="porta futura"><img src="img/porta.png" alt=""><b>C5</b>Publicação</div>
+  </div>
+  <p>Os módulos 2, 3 e 4 têm duas versões: <b>Pixel Art</b> (P) ou <b>Arte Vetorial</b> (V). Do 5 em diante o código é o mesmo para todos. No último módulo, o seu jogo vai para o <b>itch.io</b> com um link que você pode pôr no currículo.</p>
+  <div class="caixa dica"><span class="tag">O GDD de hoje manda em tudo</span>O documento que você escreve neste módulo é a planta da obra. Na arte você desenha o que ele pede; na engine você programa o que ele descreve. Escopo grande aqui vira semana perdida lá na frente.</div>
+</section>
+
+<section class="sala" id="sala2">
+  <div class="sala-cab"><span class="sala-num">SALA 02</span><h2>Jogue como designer</h2></div>
+  <p class="objetivo">Objetivo: jogar o modelo do começo ao fim, anotando o que acontece em vez de só tentar vencer.</p>
+  <div class="passo">
+    <div class="passo-tit"><span class="moeda">1</span>Jogue uma vez “de jogador”</div>
+    <p>Abra <a href="jogar/index.html" target="_blank" rel="noopener"><b>O Rei e os Porcos no navegador</b></a> (o carregamento leva alguns segundos) e jogue até vencer ou perder. Se aparecer <i>“Failed to fetch”</i>, o site foi aberto direto do computador (endereço começando com <code>C:/</code> ou <code>file://</code>): abra pelo endereço publicado <code>rclepf.github.io/GameDev2D-C1-01/jogar/</code>. Controles: <kbd>A</kbd>/<kbd>D</kbd> andar, <kbd>Espaço</kbd> pular, <kbd>J</kbd> martelo, <kbd>K</kbd> bomba, <kbd>E</kbd> interagir, <kbd>Esc</kbd> pausa.</p>
+  </div>
+  <div class="passo">
+    <div class="passo-tit"><span class="moeda">2</span>Jogue de novo “de designer”</div>
+    <p>Agora jogue com um papel ao lado e anote, por fase:</p>
+    <ul class="lista-check">
+      <li>O que o jogo me <b>ensinou</b> e como (texto? fase? perigo?)</li>
+      <li>O que eu <b>repeti</b> o tempo todo</li>
+      <li>Onde eu <b>morri</b> ou travei, e por quê</li>
+      <li>O que mudou de uma fase para a outra</li>
+    </ul>
+    <div class="porque"><b>Por quê:</b> o jogador sente; o designer explica o que sentiu. Essas anotações viram a matéria-prima das Salas 03 a 05.</div>
+  </div>
+  <figure><img src="img/tela_canhao.png" alt="Fase 2: o rei sobre um bloco e um canhão operado por um porco na plataforma alta"><figcaption>Fase 2: o canhão aparece depois que você já sabe pular e martelar. Coincidência?</figcaption></figure>
+</section>
+
+<section class="sala" id="sala3">
+  <div class="sala-cab"><span class="sala-num">SALA 03</span><h2>Os elementos formais</h2></div>
+  <p class="objetivo">Objetivo: descrever qualquer jogo com as mesmas oito perguntas.</p>
+  <p>Todo jogo, de xadrez a plataforma, pode ser descrito por oito elementos (Tracy Fullerton, <i>Game Design Workshop</i>). Preencha a última coluna com o jogo modelo — duas linhas já vêm de exemplo.</p>
+  <table>
+    <tr><th>Elemento</th><th>A pergunta</th><th>No castelo</th></tr>
+    <tr><td><b>Jogadores</b></td><td>Quantos e em que papel?</td><td>1 jogador, no papel do rei.</td></tr>
+    <tr><td><b>Objetivo</b></td><td>O que é vencer?</td><td><i>você preenche</i></td></tr>
+    <tr><td><b>Procedimentos</b></td><td>Que ações o jogador pode fazer?</td><td>Andar, pular, martelar, arremessar bomba e interagir com portas e baús.</td></tr>
+    <tr><td><b>Regras</b></td><td>O que é permitido, proibido, o que acontece quando…?</td><td><i>você preenche (dica: quem fere quem?)</i></td></tr>
+    <tr><td><b>Recursos</b></td><td>O que o jogador tem e gasta?</td><td><i>você preenche (olhe a HUD)</i></td></tr>
+    <tr><td><b>Conflito</b></td><td>O que impede o objetivo?</td><td><i>você preenche</i></td></tr>
+    <tr><td><b>Limites</b></td><td>Onde o jogo acontece?</td><td><i>você preenche</i></td></tr>
+    <tr><td><b>Resultado</b></td><td>Como termina?</td><td><i>você preenche</i></td></tr>
+  </table>
+  <div class="caixa atencao"><span class="tag">Regra é o que o jogo faz, não o que você acha</span>“O chefão é difícil” não é regra. “O chefão só perde vida com bomba” é.</div>
+</section>
+
+<section class="sala" id="sala4">
+  <div class="sala-cab"><span class="sala-num">SALA 04</span><h2>MDA: da regra à sensação</h2></div>
+  <p class="objetivo">Objetivo: ligar o que está programado ao que o jogador sente.</p>
+  <p>O modelo MDA (Hunicke, LeBlanc e Zubek) separa o jogo em três camadas. O designer constrói de dentro para fora; o jogador percebe de fora para dentro.</p>
+  <table>
+    <tr><th>Camada</th><th>O que é</th><th>Exemplo no castelo</th></tr>
+    <tr><td><b>M</b>ecânica</td><td>As regras e ações, como estão no código.</td><td>A bomba explode 1,6 s depois de arremessada e fere tudo num raio.</td></tr>
+    <tr><td><b>D</b>inâmica</td><td>O comportamento que surge quando o jogador usa as mecânicas.</td><td>O jogador aprende a jogar a bomba antes do chefão chegar e se afastar.</td></tr>
+    <tr><td><b>E</b>stética</td><td>A emoção que o jogador sente.</td><td>Tensão e alívio: “consegui no tempo certo”.</td></tr>
+  </table>
+  <div class="passo">
+    <div class="passo-tit"><span class="moeda">3</span>Faça uma linha MDA sua</div>
+    <p>Escolha outra mecânica do castelo — o canhão, a caixa com porco escondido ou a chave — e escreva a sua linha M → D → E.</p>
+    <div class="porque"><b>Por quê:</b> quando o seu jogo não estiver divertido, você não vai consertar a “diversão”: vai consertar uma mecânica. O MDA mostra qual.</div>
+  </div>
+</section>
+
+<section class="sala" id="sala5">
+  <div class="sala-cab"><span class="sala-num">SALA 05</span><h2>O loop central</h2></div>
+  <p class="objetivo">Objetivo: achar a sequência de ações que o jogador repete do início ao fim.</p>
+  <p>O <b>loop central</b> é o ciclo que o jogador repete minuto a minuto. Se ele não for bom sozinho, nenhuma arte salva o jogo. Ele se escreve em <b>uma frase</b> com verbos.</p>
+  <div class="caixa dica"><span class="tag">Formato</span><b>Verbo</b> → <b>verbo</b> → <b>verbo</b> → (recompensa que leva ao próximo ciclo)</div>
+  <p>Exemplo de outro jogo: em <i>Celeste</i>, “pular, agarrar e dar dash para atravessar uma tela → a tela seguinte é mais difícil”.</p>
+  <div class="passo">
+    <div class="passo-tit"><span class="moeda">4</span>Escreva o loop do castelo</div>
+    <p>Use as suas anotações da Sala 02. Quantos verbos aparecem em toda fase? Qual é a recompensa que puxa para a próxima sala?</p>
+    <div class="porque"><b>Por quê:</b> o loop é o primeiro campo do GDD. Tudo o que não serve ao loop é candidato a corte.</div>
+  </div>
+  <h3>Loops secundários</h3>
+  <p>Ao redor do loop central giram ciclos maiores: na escala da <b>fase</b> (achar a chave → abrir a porta) e na escala do <b>jogo</b> (três salas cada vez mais perigosas → chefão). Anote os dois.</p>
+</section>
+
+<section class="sala" id="sala6">
+  <div class="sala-cab"><span class="sala-num">SALA 06</span><h2>O GDD de uma página</h2></div>
+  <p class="objetivo">Objetivo: conhecer o documento que você vai escrever duas vezes neste módulo.</p>
+  <p>GDDs de cem páginas ninguém lê. O de uma página cabe na parede e responde ao que a equipe precisa saber para produzir. Este é o modelo da trilha:</p>
+  <table>
+    <tr><th>Campo</th><th>O que escrever</th></tr>
+    <tr><td>Título e frase de venda</td><td>Nome + uma frase que faria alguém querer jogar.</td></tr>
+    <tr><td>Público e plataforma</td><td>Para quem, em que idade, onde joga (PC, navegador).</td></tr>
+    <tr><td>Gênero e referências</td><td>Gênero + 2 jogos parecidos e o que você pega de cada.</td></tr>
+    <tr><td>Loop central</td><td>A frase da Sala 05.</td></tr>
+    <tr><td>Controles</td><td>Ação → tecla.</td></tr>
+    <tr><td>Personagem e inimigos</td><td>Herói, inimigos e o que cada um faz.</td></tr>
+    <tr><td>Progressão</td><td>Fases, o que muda entre elas, o chefão.</td></tr>
+    <tr><td>Vitória e derrota</td><td>Como ganha, como perde, o que acontece ao perder.</td></tr>
+    <tr><td>Estética</td><td>Estilo (pixel ou vetor), paleta, clima, som.</td></tr>
+    <tr><td>Lista de assets</td><td>Tudo o que precisa ser desenhado, animado ou gravado.</td></tr>
+  </table>
+  <p>Baixe o modelo: <a href="Modelo_GDD_1_Pagina.docx"><b>Modelo_GDD_1_Pagina.docx</b></a>.</p>
+</section>
+
+<section class="sala" id="sala7">
+  <div class="sala-cab"><span class="sala-num">SALA 07</span><h2>Engenharia reversa: o GDD do castelo</h2></div>
+  <p class="objetivo">Objetivo: preencher o GDD de uma página do jogo modelo — Atividade C1.1.</p>
+  <div class="passo">
+    <div class="passo-tit"><span class="moeda">5</span>Preencha campo a campo</div>
+    <p>Use as tabelas das Salas 03 a 05 e as suas anotações. Para a <b>lista de assets</b>, abra a pasta do pacote de artes ou conte o que aparece na tela: cada animação do rei conta como um asset.</p>
+    <div class="porque"><b>Por quê:</b> escrever o GDD de um jogo que já existe ensina o tamanho real das coisas. Você vai descobrir quantos desenhos e regras cabem em três fases — e usar esse número para não exagerar no seu.</div>
+  </div>
+  <div class="caixa checkpoint"><span class="tag">Fim da aula 1 · Atividade C1.1</span>
+    <ul class="lista-check">
+      <li>Os oito elementos formais do castelo preenchidos.</li>
+      <li>Uma linha MDA escrita por você.</li>
+      <li>O loop central do castelo em uma frase.</li>
+      <li>O GDD de uma página do castelo, com a lista de assets.</li>
+    </ul>
+    Não terminou no sábado? Conclua no início do EAD. Durante a semana você estuda a fundamentação e cria o seu jogo no <a href="https://rclepf.github.io/GameDev2D-C1-02/">Site 2 · Estudo da semana</a>.
+  </div>
+</section>
+
+<section class="sala" id="sala8">
+  <div class="sala-cab"><span class="sala-num">SALA 08</span><h2>Onde estamos na trilha</h2></div>
+  <div class="mapa">
+    <div class="porta aqui"><img src="img/porta.png" alt=""><b>C1</b>GDD ◂ você</div>
+    <div class="porta futura"><img src="img/porta.png" alt=""><b>P1/V1</b>Arte</div>
+    <div class="porta futura"><img src="img/porta.png" alt=""><b>P2/V2</b>Animação</div>
+    <div class="porta futura"><img src="img/porta.png" alt=""><b>P3/V3</b>Fase</div>
+    <div class="porta futura"><img src="img/porta.png" alt=""><b>C2</b>Engine</div>
+    <div class="porta futura"><img src="img/porta.png" alt=""><b>C3</b>Mecânicas</div>
+    <div class="porta futura"><img src="img/porta.png" alt=""><b>C4</b>Áudio</div>
+    <div class="porta futura"><img src="img/porta.png" alt=""><b>C5</b>Publicação</div>
+  </div>
+  <nav class="vizinhos">
+    <a href="#sala1"><small>Voltar ao início</small>Sala 01 · A trilha em oito portas</a>
+    <a class="prox" href="https://rclepf.github.io/GameDev2D-C1-02/"><small>Próximo · EAD da semana</small>Site 2 · Estudo da semana</a>
+  </nav>
+</section>
+</main>
+
+<footer><b>Trilha GameDev 2D</b> · C1 Design de Jogos 2D: da Ideia ao GDD · Site 1 de 3 (Aula inicial) — Desmontando o castelo<br>SENAI CTTI · Assets: série “Criando um jogo DO ZERO com Construct 3” (Gamecraft)</footer>
+<script src="trilha.js"></script>
+</body>
+</html>
