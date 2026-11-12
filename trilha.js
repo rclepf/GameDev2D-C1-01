@@ -1,4 +1,4 @@
-// Trilha GameDev 2D — realce de GDScript e botão "copiar" nos blocos de código.
+// Jornada GameDev 2D — realce de GDScript e botão "copiar" nos blocos de código.
 const PALAVRAS = new Set(("extends class_name func var const enum signal if elif else for while match return " +
   "await break continue pass and or not in is as self super static preload load true false null void").split(" "));
 const TIPOS = new Set(("int float bool String Vector2 Vector2i Node Node2D Area2D CharacterBody2D RigidBody2D " +

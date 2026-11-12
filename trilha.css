@@ -1,4 +1,4 @@
-/* Trilha GameDev 2D — identidade visual "castelo em pixel art" (SENAI CTTI) */
+/* Jornada GameDev 2D — identidade visual "castelo em pixel art" (SENAI CTTI) */
 :root {
   --noite: #1b1724;
   --pedra: #262033;
@@ -147,3 +147,18 @@ figcaption { font-size: 14px; color: var(--texto-2); margin-top: 4px; }
 .vizinhos .prox { text-align: right; }
 footer { border-top: 3px solid var(--borda); padding: 18px 16px 40px; text-align: center; color: var(--texto-2); font-size: 14px; }
 footer b { font-family: var(--pixel); color: var(--texto); }
+
+/* ---- P1/V1: comparações lado a lado, rampas de cor, desenhos SVG ---- */
+.par { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0; }
+.par figure { margin: 0; }
+@media (max-width: 640px) { .par { grid-template-columns: 1fr; } }
+figure.bom figcaption::before { content: "✓ "; color: var(--porco); font-weight: 700; }
+figure.ruim figcaption::before { content: "✗ "; color: var(--perigo); font-weight: 700; }
+.rampas { display: grid; gap: 8px; margin: 18px 0; }
+.rampa { display: grid; grid-template-columns: 110px repeat(5, 1fr); gap: 4px; align-items: stretch; }
+.rampa b { font: 13px var(--rotulo); color: var(--texto-2); align-self: center; }
+.rampa span { height: 46px; border-radius: 4px; border: 2px solid var(--borda); font: 11px var(--rotulo); display: flex; align-items: flex-end; padding: 3px 5px; color: rgba(0,0,0,.7); }
+.rampa span.esc { color: rgba(255,255,255,.85); }
+.desenho { background: #f6edda; border: 3px solid var(--borda); border-radius: 6px; padding: 10px; }
+.desenho svg { display: block; width: 100%; height: auto; }
+.baixar { display: inline-block; font: 700 15px var(--rotulo); background: var(--ouro); color: var(--noite); padding: 8px 14px; border-radius: 4px; text-decoration: none; margin: 6px 0; }

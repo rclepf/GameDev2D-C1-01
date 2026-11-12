@@ -1,9 +1,9 @@
 # GameDev2D-C1-01 — Desmontando o castelo
 
-**Trilha GameDev 2D · SENAI CTTI**
+**Jornada GameDev 2D · SENAI CTTI**
 C1 · Design de Jogos 2D: da Ideia ao GDD · Site 1 de 3 · Aula inicial (sábado, presencial)
 
-Explicação do professor e introdução ao tema: a trilha, o jogo modelo jogável no navegador, elementos formais, MDA, loop central e GDD de uma página. Termina com a Atividade C1.1 (GDD do castelo).
+Explicação do professor e introdução ao tema: a jornada, o jogo modelo jogável no navegador, elementos formais, MDA, loop central e GDD de uma página. Termina com a Atividade C1.1 (GDD do castelo).
 
 🔗 **Site publicado:** https://rclepf.github.io/GameDev2D-C1-01/
 
@@ -11,23 +11,23 @@ Explicação do professor e introdução ao tema: a trilha, o jogo modelo jogáv
 
 | Seção | Tema |
 |---|---|
-| Sala 01 | A trilha em oito portas |
+| Sala 01 | A jornada em oito portas |
 | Sala 02 | Jogue como designer |
 | Sala 03 | Os elementos formais |
 | Sala 04 | MDA: da regra à sensação |
 | Sala 05 | O loop central |
 | Sala 06 | O GDD de uma página |
 | Sala 07 | Engenharia reversa: o GDD do castelo |
-| Sala 08 | Onde estamos na trilha |
+| Sala 08 | Onde estamos na jornada |
 
 ## Estrutura do repositório
 
 - `index.html` — a página do site
-- `trilha.css` — identidade visual da trilha (tema “castelo”, comum a todos os sites)
+- `trilha.css` — identidade visual da jornada (tema “castelo”, comum a todos os sites)
 - `trilha.js` — realce de código GDScript e botão “copiar”
 - `img/` — sprites, telas do jogo modelo e ícones
 - `jogar/` — jogo modelo *O Rei e os Porcos* exportado para Web (Godot 4)
-- `Modelo_GDD_1_Pagina.docx` — modelo de GDD da trilha
+- `Modelo_GDD_1_Pagina.docx` — modelo de GDD da jornada
 
 ## Publicar no GitHub Pages
 
@@ -51,7 +51,7 @@ e abra `http://localhost:8000/` (site) ou `http://localhost:8000/jogar/` (jogo).
 ## Créditos
 
 - Material didático: Rodolfo Clepf de Carvalho — SENAI CTTI (FIEMG), Belo Horizonte.
-- Jogo modelo *O Rei e os Porcos*: desenvolvido em Godot 4 para a trilha.
+- Jogo modelo *O Rei e os Porcos*: desenvolvido em Godot 4 para a jornada.
 - Artes e áudios do jogo modelo: pacote da série *“Criando um jogo DO ZERO com Construct 3”* (Daniel Valadares, canal Gamecraft).
 - Fontes: Atkinson Hyperlegible, Bricolage Grotesque e JetBrains Mono (Google Fonts).
 - Materiais externos citados nos sites pertencem aos seus autores e instituições.
